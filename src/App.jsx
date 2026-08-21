@@ -96,7 +96,7 @@ function GreenVatikaPage() {
 
     const whatsappUrl =
       `https://api.whatsapp.com/send?` +
-      `phone=919310007449&` +
+      `phone=919313474447&` +
       `text=${encodeURIComponent(message)}`;
 
     window.open(

@@ -363,8 +363,7 @@ export default function Contact() {
                 icon={<LocationIcon />}
               >
                 <p>
-                  Green Vatika Farms, Near Village
-                  Chhaproli, Sector 168, Noida
+          Green Vatika farms, Near Sector 168 Noida
                 </p>
               </ContactDetail>
 
@@ -373,7 +372,7 @@ export default function Contact() {
                 icon={<PhoneIcon />}
               >
                 <a
-                  href="tel:+919310007449"
+                  href="tel:+919313474447"
                   className="
                     font-semibold
                     text-[#244b2e]
@@ -381,7 +380,7 @@ export default function Contact() {
                     hover:text-[#b78b43]
                   "
                 >
-                  +91 93100 07449
+                  +91 9313474447
                 </a>
               </ContactDetail>
 

@@ -169,7 +169,7 @@ export default function FloorPlan() {
                 tracking-[-1px] text-[#15351f]
               "
             >
-              Master Plan — Built Around{" "}
+              Layout Plan — Built Around{" "}
 
               <span className="text-[#b78b43]">
                 Open Space

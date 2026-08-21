@@ -1,67 +1,28 @@
 const distances = [
   {
     landmark: "Lemon Tree Hotel",
-    distance: "1–2 km",
+    distance: "1 KM Approx.",
+    direction: "right",
   },
   {
-    landmark: "ABC Business Park",
-    distance: "1–2 km",
-  },
-  {
-    landmark: "IT & Business Hub, Sector 135",
-    distance: "1–2 km",
+    landmark: "Assotech Business Cresterra Park",
+    distance: "2 KM Approx.",
+    direction: "left",
   },
   {
     landmark: "Noida Sector 142 Metro Station",
-    distance: "3–4 km",
-  },
-  {
-    landmark: "Kailash Hospital",
-    distance: "4–5 km",
+    distance: "3 KM Approx.",
+    direction: "right",
   },
   {
     landmark: "Yatharth Hospital",
-    distance: "5–6 km",
-  },
-  {
-    landmark: "Noida–Greater Noida Expressway",
-    distance: "5–6 km",
-  },
-  {
-    landmark: "Mahamaya Flyover",
-    distance: "5 km",
-  },
-  {
-    landmark: "Yamuna Expressway",
-    distance: "12 km",
-  },
-  {
-    landmark: "Pari Chowk",
-    distance: "14–15 km",
-  },
-  {
-    landmark: "Noida Sector 18 (Commercial Hub)",
-    distance: "14–15 km",
-  },
-  {
-    landmark: "Noida Sector 62 (IT Hub)",
-    distance: "15–17 km",
-  },
-  {
-    landmark: "Akshardham, Delhi",
-    distance: "25–30 km",
-  },
-  {
-    landmark: "Connaught Place, Delhi",
-    distance: "30–35 km",
-  },
-  {
-    landmark: "IGI Airport, Delhi",
-    distance: "40–45 km",
+    distance: "5 KM Approx.",
+    direction: "left",
   },
   {
     landmark: "Jewar (Noida International) Airport",
-    distance: "55–60 km",
+    distance: "Around 45 min",
+    direction: "right",
   },
 ];
 
@@ -419,113 +380,146 @@ export default function Location() {
           {/* Distances column */}
           <div
             className="
-              flex h-full flex-col
-              overflow-hidden rounded-[24px]
-              border border-[#173d23]/10
-              bg-white
-              shadow-[0_20px_55px_rgba(23,61,35,0.1)]
+              relative flex h-full flex-col
+              overflow-hidden rounded-[28px]
+              border border-[#dfba70]/25
+              
+              shadow-[0_24px_65px_rgba(15,74,37,0.22)]
             "
           >
+            <div
+              className="
+                pointer-events-none absolute inset-0
+                bg-[radial-gradient(circle_at_top_left,rgba(223,186,112,0.22),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.12),transparent_30%)]
+               "
+            />
+
             {/* Distance header */}
             <div
               className="
-                flex items-center justify-between
-                gap-4 bg-[#15351f]
-                px-5 py-5 sm:px-6
+                relative z-10
+                flex flex-col items-center
+                border-b border-white/15
+                px-5 py-7 text-center bg-[#15351f]
+                sm:px-6 
               "
             >
-              <div>
-                <p
-                  className="
-                    text-xs font-bold uppercase
-                    tracking-[2px] text-[#dfba70]
-                  "
-                >
-                  Nearby Connectivity
-                </p>
-
-                <h3
-                  className="
-                    mt-1 font-serif
-                    text-2xl font-bold text-white
-                  "
-                >
-                  Key Distances
-                </h3>
-              </div>
-
               <div
                 className="
-                  hidden rounded-full
-                  border border-white/15
-                  bg-white/10 px-3 py-1.5
-                  text-xs font-semibold
-                  text-white/70 sm:block
+                  mb-4 flex h-20 w-20
+                  items-center justify-center
+                  rounded-full
+                  border border-[#dfba70]/40
+                  bg-white
+                  text-[#15351f]
+                  shadow-[0_12px_28px_rgba(0,0,0,0.18)]
                 "
               >
-                {distances.length} Landmarks
+                <LocationIcon className="h-9 w-9" />
               </div>
+
+              <p
+                className="
+                  text-xs font-black uppercase
+                  tracking-[3px] text-[#dfba70]
+                "
+              >
+                Location Advantage
+              </p>
+
+              <h3
+                className="
+                  mt-2 font-serif
+                  text-3xl font-bold  text-[#dfba70]
+                  sm:text-4xl
+                "
+              >
+                Prime Connectivity
+              </h3>
             </div>
 
             {/* Distance cards */}
             <div
               className="
-                grid flex-1 grid-cols-1
-                gap-2.5 p-4
-                sm:grid-cols-2 sm:p-5
+                relative z-10
+                flex flex-1 flex-col
+                justify-center gap-5
+                px-5 py-8
+                sm:px-8
               "
             >
-              {distances.map(({ landmark, distance }, index) => (
+              {distances.map(({ landmark, distance, direction }, index) => (
                 <div
                   key={landmark}
-                  className="
-                    group flex min-h-[68px]
-                    items-center gap-3
-                    rounded-xl
-                    border border-[#173d23]/10
-                    bg-[#f8f7f2]
-                    px-3 py-2.5
-                    transition-all duration-200
-                    hover:-translate-y-0.5
-                    hover:border-[#b78b43]/40
-                    hover:bg-[#f3efe4]
-                    hover:shadow-[0_7px_18px_rgba(23,61,35,0.08)]
-                  "
+                  className={`
+                    group flex items-center
+                    ${direction === "left" ? "justify-end" : "justify-start"}
+                  `}
                 >
-                  <span
-                    className="
-                      flex h-8 w-8 shrink-0
-                      items-center justify-center
-                      rounded-lg bg-[#173d23]
-                      text-[10px] font-bold
-                      text-[#dfba70]
-                      transition-colors
-                      group-hover:bg-[#b78b43]
-                      group-hover:text-white
-                    "
+                  <div
+                    className={`
+                      relative flex min-h-[76px]
+                      w-full max-w-[500px]
+                      items-center
+                      bg-white px-5 py-4
+                      text-[#15351f]
+                      shadow-[0_12px_28px_rgba(0,0,0,0.18)]
+                      transition-transform duration-300
+                      group-hover:-translate-y-1
+                      ${
+                        direction === "left"
+                          ? "rounded-l-2xl rounded-r-md pr-10"
+                          : "rounded-l-md rounded-r-2xl pl-10"
+                      }
+                    `}
                   >
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                    <span
+                      className={`
+                        absolute top-1/2
+                        h-0 w-0 -translate-y-1/2
+                        ${
+                          direction === "left"
+                            ? "-right-8 border-y-[38px] border-l-[34px] border-y-transparent border-l-white"
+                            : "-left-8 border-y-[38px] border-r-[34px] border-y-transparent border-r-white"
+                        }
+                      `}
+                    />
 
-                  <div className="min-w-0 flex-1">
-                    <p
+                    <span
                       className="
-                        text-[13px] font-semibold
-                        leading-[1.3] text-[#354039]
+                        mr-4 flex h-10 w-10
+                        shrink-0 items-center
+                        justify-center rounded-full
+                        bg-[#15351f]
+                        text-xs font-black
+                        text-[#dfba70]
                       "
                     >
-                      {landmark}
-                    </p>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
 
-                    <div
-                      className="
-                        mt-1 flex items-center
-                        gap-1 text-[11px]
-                        font-bold text-[#397047]
-                      "
-                    >
-                      <ArrowIcon />
-                      {distance}
+                    <div>
+                      <p
+                        className="
+                          font-serif text-lg
+                          font-bold leading-tight
+                          sm:text-xl
+                        "
+                      >
+                        {landmark}
+                      </p>
+
+                      <p
+                        className="
+                          mt-1 flex items-center
+                          gap-1.5 text-sm
+                          font-black uppercase
+                          tracking-wide text-[#c49b52]
+                        "
+                      >
+                        <ArrowIcon />
+                        {distance}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -535,12 +529,13 @@ export default function Location() {
             {/* Disclaimer */}
             <div
               className="
-                border-t border-[#173d23]/10
-                bg-[#edf4ee]
+                relative z-10
+                border-t border-white/15
+                bg-[#c49b52]
                 px-5 py-3 text-center
               "
             >
-              <p className="text-xs leading-5 text-[#607066]">
+              <p className="text-sm leading-5 text-[#15351f]">
                 Distances are approximate and may vary depending on the
                 selected route.
               </p>
